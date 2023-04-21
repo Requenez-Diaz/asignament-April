@@ -21,4 +21,24 @@ export class RegisterService {
   findAll() {
     return this.registerRepository.find();
   }
+
+  findOne(id: string) {
+    return this.registerRepository.findOneBy({ id });
+  }
+
+  async remove(id: string) {
+    const register = await this.findOne(id);
+    await this.registerRepository.remove(register);
+    return `register deleted`;
+  }
+
+  async update(id: string, changeDto: CreateRegisterDto) {
+    const findRegister = await this.findOne(id);
+    const updateRegister = await this.registerRepository.merge(
+      findRegister,
+      changeDto,
+    );
+
+    return this.registerRepository.update(id, updateRegister);
+  }
 }

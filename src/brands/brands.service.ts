@@ -26,7 +26,7 @@ export class BrandsService {
     return this.brandRepository.findOneBy({ id });
   }
 
-  //eliminar productos
+  //deleted brands
 
   async remove(id: string) {
     const product = await this.findOne(id);
