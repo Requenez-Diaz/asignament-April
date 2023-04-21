@@ -20,9 +20,9 @@ export class Brands {
   @Column({ type: 'text' })
   userCreate: string;
 
-  @Column({ type: 'numeric', unique: true })
+  @Column({ type: 'numeric' })
   dateModified: number;
 
-  @Column({ type: 'numeric', unique: true })
+  @Column({ type: 'numeric' })
   createdDate: number;
 }
