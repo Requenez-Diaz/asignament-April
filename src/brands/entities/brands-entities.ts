@@ -5,7 +5,7 @@ export class Brands {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @Column({ unique: true })
+  @Column({ unique: true, type: 'text' })
   name: string;
 
   @Column({ type: 'text' })
@@ -17,7 +17,7 @@ export class Brands {
   @Column({ type: 'text' })
   description: string;
 
-  @Column({ type: 'text', unique: true })
+  @Column({ type: 'text' })
   userCreate: string;
 
   @Column({ type: 'numeric', unique: true })
