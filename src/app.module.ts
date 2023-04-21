@@ -6,6 +6,9 @@ import { BrandsService } from './brands/brands.service';
 import { BrandsModule } from './brands/brands.module';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { RegisterController } from './register/register.controller';
+import { RegisterService } from './register/register.service';
+import { RegisterModule } from './register/register.module';
 
 @Module({
   imports: [
@@ -21,8 +24,9 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       synchronize: true,
     }),
     BrandsModule,
+    RegisterModule,
   ],
-  controllers: [AppController],
-  providers: [AppService],
+  controllers: [AppController, RegisterController],
+  providers: [AppService, RegisterService],
 })
 export class AppModule {}
